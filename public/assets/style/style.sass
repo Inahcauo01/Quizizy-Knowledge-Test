@@ -1,0 +1,64 @@
+
+$secondary: #90b4ce
+$tertiary: #ef4565
+$headline: #094067
+$background: #fffffe
+$button: #3da9fc
+$button-text: #fffffe
+$paragraph: #5f6c7b
+
+*
+    font-family: Arial, Helvetica, sans-serif
+
+@mixin flex-center
+    display: flex
+    justify-content: center
+    align-items: center
+
+    
+body
+    // background-color: #4158D0
+    // background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)
+
+.container
+    height: 100vh
+    background-color: $secondary
+    @include flex-center
+ 
+
+ul
+    list-style: none
+    display: flex
+    justify-content: space-around
+
+.stepper
+    width: 60%
+    color: $paragraph
+    background: $background
+    border-radius: 10px
+    padding: 10px
+
+.step
+    font-size: 18px
+    line-height: 1.9rem
+    padding: 10px 3rem
+    text-align: center
+
+.btns
+    text-align: center
+
+.next,.previous,.start
+        padding: 8px
+        font-size: 17px
+        width: 10rem
+        background: $button
+        color: $button-text
+        border: none
+        border-radius: 2rem
+        &:hover
+            background: $headline
+            transition: .5s
+.hide
+    display: none
+.color
+    color: $button
