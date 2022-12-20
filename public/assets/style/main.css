@@ -2,9 +2,13 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+
 .container {
-  height: 100vh;
-  background-color: #90b4ce;
+  height: 97.8vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,6 +33,7 @@ ul {
   line-height: 1.9rem;
   padding: 10px 3rem;
   text-align: center;
+  margin-top: 14px;
 }
 
 .btns {
@@ -49,10 +54,24 @@ ul {
   transition: 0.5s;
 }
 
+.start {
+  background: #ef4565;
+}
+
 .hide {
   display: none;
 }
 
 .color {
   color: #3da9fc;
-}/*# sourceMappingURL=style.css.map */
+}
+
+#input-username {
+  padding: 10px;
+  border: 1px solid #90b4ce;
+  border-radius: 12px;
+  width: 50%;
+}
+#input-username:focus {
+  outline-color: #90b4ce;
+}/*# sourceMappingURL=main.css.map */

@@ -65,3 +65,9 @@ previous.addEventListener("click",()=>{
         next.classList.remove("hide")
     }
 })
+
+start.addEventListener("click", ()=>{
+    document.querySelector(".stepper").style.display="none";
+    // document.querySelector(".container").innerHTML +="hi "+document.querySelector("#input-username").value
+    
+})
