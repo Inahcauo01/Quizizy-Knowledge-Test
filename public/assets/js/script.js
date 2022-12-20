@@ -44,6 +44,8 @@ previous.addEventListener("click",()=>{
         console.log("1")
         steps.forEach(step => { step.classList.add("hide"); });
         one.classList.remove("hide");
+
+        next.classList.remove("hide")
         previous.classList.add("hide");
         iconStep2.classList.remove("color")
     }
@@ -58,5 +60,8 @@ previous.addEventListener("click",()=>{
         steps.forEach(step => { step.classList.add("hide"); });
         three.classList.remove("hide");
         iconStep4.classList.remove("color")
+        
+        start.classList.add("hide")
+        next.classList.remove("hide")
     }
 })
