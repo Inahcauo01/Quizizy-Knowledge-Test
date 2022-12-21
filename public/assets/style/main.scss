@@ -1,0 +1,134 @@
+
+$secondary: #90b4ce;
+$tertiary: #ef4565;
+$headline: #094067;
+$background: #fffffe;
+$button: #3da9fc;
+$button-text: #fffffe;
+$paragraph: #5f6c7b;
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@mixin flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+body{
+    background: url("../images/bg.jpg")
+}
+.container{
+    height: 97.8vh;
+    @include flex-center;
+}
+ 
+
+ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+.stepper-content{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.stepper{
+    width: 60%;
+    color: $paragraph;
+    background: $background;
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    height: 60%;
+}
+
+.step{
+    font-size: 18px;
+    line-height: 1.9rem;
+    padding: 10px 3rem;
+    text-align: center;
+    margin-top: 14px;
+}
+.btns{
+    text-align: center;
+}
+.next,.previous,.start{
+        padding: 8px;
+        font-size: 17px;
+        width: 10rem;
+        background: $button;
+        color: $button-text;
+        border: none;
+        border-radius: 2rem;
+        &:hover{
+            background: $headline;
+            transition: .5s
+        }
+}
+.start{
+    background: $tertiary;
+}
+.hide{
+    display: none;
+}
+.color{
+    color: $button;
+}
+
+#input-username{
+    &:focus{
+        outline-color: $secondary;
+    }
+    padding: 10px;
+    border: 1px solid $secondary;
+    border-radius: 12px;
+    width: 50%;
+}
+
+.quetionnaire{
+    background: $background;
+    padding: 10px;
+    height: 100%;
+}
+
+.reponses{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "reponse1 reponse2"
+                         "reponse3 reponse4";
+    gap: 6px;
+    height: 100%;
+}
+
+
+@for $i from 1 through 4{
+    .reponse#{$i}{
+        grid-area: reponse#{$i};
+        background-color: #094067;
+        @include flex-center;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 12px;
+        color: white;
+        border: none;
+        &:hover{
+            background-color: $button;
+        }
+    }
+}
+    
+input[type="radio"]{
+    display: none;
+}
+.btns-question{
+    width: 100%;
+    justify-self: end;
+
+}

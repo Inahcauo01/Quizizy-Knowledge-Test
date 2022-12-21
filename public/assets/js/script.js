@@ -27,6 +27,8 @@ next.addEventListener("click",()=>{
         steps.forEach(step => { step.classList.add("hide"); });
         three.classList.remove("hide");
         iconStep3.classList.add("color")
+        previous.classList.add("hide")
+        next.classList.add("hide")
     }
     else if(!three.classList.contains("hide")){
         steps.forEach(step => { step.classList.add("hide"); });

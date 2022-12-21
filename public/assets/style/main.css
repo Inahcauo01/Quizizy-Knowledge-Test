@@ -3,8 +3,7 @@
 }
 
 body {
-  background-color: #4158D0;
-  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  background: url("../images/bg.jpg");
 }
 
 .container {
@@ -20,6 +19,13 @@ ul {
   justify-content: space-around;
 }
 
+.stepper-content {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .stepper {
   width: 60%;
   color: #5f6c7b;
@@ -27,6 +33,7 @@ ul {
   border-radius: 10px;
   padding: 10px;
   position: relative;
+  height: 60%;
 }
 
 .step {
@@ -79,11 +86,85 @@ ul {
 
 .quetionnaire {
   background: #fffffe;
-  padding: 30px;
+  padding: 10px;
+  height: 100%;
 }
 
 .reponses {
   display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  grid-template-areas: "reponse1 reponse2" "reponse3 reponse4";
+  gap: 6px;
+  height: 100%;
+}
+
+.reponse1 {
+  grid-area: reponse1;
+  background-color: #094067;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 12px;
+  color: white;
+  border: none;
+}
+.reponse1:hover {
+  background-color: #3da9fc;
+}
+
+.reponse2 {
+  grid-area: reponse2;
+  background-color: #094067;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 12px;
+  color: white;
+  border: none;
+}
+.reponse2:hover {
+  background-color: #3da9fc;
+}
+
+.reponse3 {
+  grid-area: reponse3;
+  background-color: #094067;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 12px;
+  color: white;
+  border: none;
+}
+.reponse3:hover {
+  background-color: #3da9fc;
+}
+
+.reponse4 {
+  grid-area: reponse4;
+  background-color: #094067;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 12px;
+  color: white;
+  border: none;
+}
+.reponse4:hover {
+  background-color: #3da9fc;
+}
+
+input[type=radio] {
+  display: none;
 }
 
 .btns-question {
