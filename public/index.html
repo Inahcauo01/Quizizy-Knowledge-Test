@@ -29,7 +29,8 @@
             <div class="stepper-content">
                 <div class="step one">page 1
                     <h3>Testez vos connaissances</h3>
-                    Ce test contient une banque des questions sur AWS (Amazon Web Services) Practitioner pour examiner les connaissances techniques.
+                    Ce test contient une banque des questions sur AWS (Amazon Web Services) Practitioner pour examiner les connaissances techniques. <br>
+                    Le résultat va être affiché vers la fin de test, ainsi que l'explication de chaque réponse correcte 
                 </div>
                 <div class="step two hide">page 2 <br>
                     <dl>
@@ -39,15 +40,40 @@
                         <li>
                             Chaque question ne peut pas dépasser 30sec, si le timing est cloturé dans ce cas la question doit être considéré comme une réponse fausse.
                         </li>
+                        <li>
+                            <div>
+                                <label for="input-username">Enter your name</label>
+                                <input type="text" id="input-username" name="username">
+                            </div>
+                        </li>
                     </dl>
                 </div>
                 <div class="step three hide">page 3 <br>
-                    <span>
-                        Le résultat va être affiché vers la fin de test, ainsi que l'explication de chaque réponse correcte 
-                    </span>
-                    <div>
-                        <label for="input-username">Enter your name</label>
-                        <input type="text" id="input-username" name="username">
+                    <div class="quetionnaire">
+                        <div class="quetion">Why is AWS more economical than traditional data centers for applications with varying compute workloads?</div>
+                        <div class="reponses">
+                            <div class="reponse1">
+                                <input type="radio" id="A" name="reponse" value="">
+                                <label for="A">reponse1</label>
+                            </div>
+                            <div class="reponse2">
+                                <input type="radio" id="B" name="reponse" value="">
+                                <label for="B">reponse2</label>
+                            </div>
+                            <div class="reponse3">
+                                <input type="radio" id="C" name="reponse" value="">
+                                <label for="C">reponse3</label>
+                            </div>
+                            <div class="reponse4">
+                                <input type="radio" id="D" name="reponse" value="">
+                                <label for="D">reponse4</label>
+                            </div>
+                            
+            
+                            <div class="btns-question">
+                                <button class="btn">next</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="step four hide">page 4 <br>Lorem ipsum dolor sit amet. Ut dolorem exercitationem ut recusandae dolorem et explicabo repudiandae et delectus distinctio. Ut animi ipsam ea nostrum beatae aut reiciendis soluta quo consequatur sunt sed officiis eveniet aut beatae maiores. Aut voluptatum enim et similique sint aut dolor unde est incidunt velit et excepturi aspernatur aut quas voluptas in labore labore. Qui voluptas quia sit labore maxime nam rerum quidem.</div>
@@ -59,9 +85,9 @@
             </div>
         </div>
 
-
+        
     </div>
-
+    
 
 
     <!-- scripts -->

@@ -23,12 +23,25 @@ body
 .container
     height: 97.8vh
     @include flex-center
+
  
 
 ul
     list-style: none
     display: flex
     justify-content: space-around
+    // li
+    //     &::before
+    //         content: ""
+    //         width: 16%
+    //         background: $button
+    //         height: 8px
+    //         position: absolute
+    //         z-index: 0
+    //  &:last-child
+    //     &::before
+    //          display: none
+
 
 .stepper
     width: 60%
@@ -36,6 +49,8 @@ ul
     background: $background
     border-radius: 10px
     padding: 10px
+    position: relative
+    
 
 .step
     font-size: 18px
@@ -73,6 +88,22 @@ ul
     border-radius: 12px
     width: 50%
 
+.quetionnaire
+    background: $background
+    padding: 30px
 
+.reponses
+    display: grid
+    
+    
+    
 
+// .reponse
+//     padding: 16px
+//     margin: 2px
+//     width: 45%
+//     background-color: $headline
 
+.btns-question
+    width: 100%
+    justify-self: end

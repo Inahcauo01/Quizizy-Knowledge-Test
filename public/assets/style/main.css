@@ -26,6 +26,7 @@ ul {
   background: #fffffe;
   border-radius: 10px;
   padding: 10px;
+  position: relative;
 }
 
 .step {
@@ -74,4 +75,18 @@ ul {
 }
 #input-username:focus {
   outline-color: #90b4ce;
+}
+
+.quetionnaire {
+  background: #fffffe;
+  padding: 30px;
+}
+
+.reponses {
+  display: grid;
+}
+
+.btns-question {
+  width: 100%;
+  justify-self: end;
 }/*# sourceMappingURL=main.css.map */
