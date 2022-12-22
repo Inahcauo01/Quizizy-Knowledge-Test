@@ -18,7 +18,8 @@ $paragraph: #5f6c7b;
 }
     
 body{
-    background: url("../images/bg.jpg")
+    background: rgb(201,212,255);
+    background: radial-gradient(circle, rgb(220, 225, 255) 0%, rgba(255,255,255,1) 100%);
 }
 .container{
     height: 97.8vh;
@@ -80,7 +81,9 @@ ul{
 .color{
     color: $button;
 }
-
+.color3{
+    background: $tertiary;
+}
 #input-username{
     &:focus{
         outline-color: $secondary;

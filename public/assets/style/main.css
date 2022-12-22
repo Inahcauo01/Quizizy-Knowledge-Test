@@ -3,7 +3,8 @@
 }
 
 body {
-  background: url("../images/bg.jpg");
+  background: rgb(201, 212, 255);
+  background: radial-gradient(circle, rgb(220, 225, 255) 0%, rgb(255, 255, 255) 100%);
 }
 
 .container {
@@ -72,6 +73,10 @@ ul {
 
 .color {
   color: #3da9fc;
+}
+
+.color3 {
+  background: #ef4565;
 }
 
 #input-username {
