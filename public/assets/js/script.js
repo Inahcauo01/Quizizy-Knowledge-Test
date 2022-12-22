@@ -17,6 +17,7 @@ let reponses = document.querySelector(".reponses")
 
 start.classList.add("hide")
 iconStep1.classList.add("color")
+
 //stepper next
 next.addEventListener("click",()=>{
     previous.classList.remove("hide");
@@ -74,7 +75,7 @@ previous.addEventListener("click",()=>{
         next.classList.remove("hide")
     }
 })
-
+// start button (step2)
 start.addEventListener("click", ()=>{
       steps.forEach(step => { step.classList.add("hide"); });
         three.classList.remove("hide");
@@ -87,6 +88,7 @@ start.addEventListener("click", ()=>{
 })
 
 let indexQst = 0;
+// sort array using random order
 let shuffledArr = questions.sort(()=> {
   return Math.random() - 0.5;
 })
