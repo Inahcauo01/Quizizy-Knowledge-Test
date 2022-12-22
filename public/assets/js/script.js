@@ -127,12 +127,13 @@ function display(index){
     createQuestion()
     console.log("Delayed for 3 second."+index) }, "3000")
 }
-
-function countDown(time){
-  sec = 10
+countDown(20);
+function countDown(sec){
   countdownText.innerHTML = sec+" seconds";
   sec--
-  
+  let timer = setTimeout(()=>{
+    countDown(sec)
+  },1000)
 }
 
 
