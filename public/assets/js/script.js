@@ -20,7 +20,7 @@ iconStep1.classList.add("color")
 
 progressBar = document.querySelector(".progressBar");
 progress = document.querySelector(".progress");
-
+countdownText = document.querySelector(".countdown")
 
 //stepper next
 next.addEventListener("click",()=>{
@@ -129,6 +129,9 @@ function display(index){
 }
 
 function countDown(time){
+  sec = 10
+  countdownText.innerHTML = sec+" seconds";
+  sec--
   
 }
 
