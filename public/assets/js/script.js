@@ -19,6 +19,8 @@ start.classList.add("hide")
 iconStep1.classList.add("color")
 
 progressBar = document.querySelector(".progressBar");
+progress = document.querySelector(".progress");
+
 
 //stepper next
 next.addEventListener("click",()=>{
@@ -93,12 +95,17 @@ let shuffledArr = questions.sort(()=> {
   return Math.random() - 0.5;
 })
 
-
+let timeOut;
 function createQuestion(){
+
+  clearTimeout(timeOut)
+
   display(indexQst);
+  //determiner le width selon la methode de trois 
   let w = ((indexQst * 100)/(shuffledArr.length-1))
   if(indexQst < shuffledArr.length-1){
     progressBar.style.width= w+"%"
+    progress.innerHTML = (indexQst+1)+"/"+shuffledArr.length;
     indexQst++;
   }
   else{
@@ -114,8 +121,17 @@ function display(index){
   reponses.innerHTML = `<button class="rep reponse1" onclick="createQuestion()">${shuffledArr[index].choiceA}</button>
                         <button class="rep reponse2" onclick="createQuestion()">${shuffledArr[index].choiceB}</button>
                         <button class="rep reponse3" onclick="createQuestion()">${shuffledArr[index].choiceC}</button>
-                        <button class="rep reponse4" onclick="createQuestion()">${shuffledArr[index].choiceD}</button>`
+                        <button class="rep reponse4" onclick="createQuestion()">${shuffledArr[index].choiceD}</button>`;
+  
+  timeOut = setTimeout(() => {
+    createQuestion()
+    console.log("Delayed for 3 second."+index) }, "3000")
 }
+
+function countDown(time){
+  
+}
+
 
 // document.querySelector(".rep").addEventListener("click",()=>{
 //   createQuestion();
