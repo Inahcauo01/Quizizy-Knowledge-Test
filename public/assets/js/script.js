@@ -1,12 +1,12 @@
 
-let start = document.querySelector(".start")
-let next = document.querySelector(".next");
-let previous =  document.querySelector(".previous");
-let one = document.querySelector(".one");
-let two = document.querySelector(".two");
-let three = document.querySelector(".three");
-let four = document.querySelector(".four");
-let steps = document.querySelectorAll(".step");
+let start     = document.querySelector(".start")
+let next      = document.querySelector(".next");
+let previous  =  document.querySelector(".previous");
+let one       = document.querySelector(".one");
+let two       = document.querySelector(".two");
+let three     = document.querySelector(".three");
+let four      = document.querySelector(".four");
+let steps     = document.querySelectorAll(".step");
 let iconStep1 = document.querySelector(".icon-step1")
 let iconStep2 = document.querySelector(".icon-step2")
 let iconStep3 = document.querySelector(".icon-step3")
@@ -18,6 +18,8 @@ let reponses = document.querySelector(".reponses")
 start.classList.add("hide")
 iconStep1.classList.add("color")
 
+progressBar = document.querySelector(".progressBar");
+
 //stepper next
 next.addEventListener("click",()=>{
     previous.classList.remove("hide");
@@ -28,8 +30,6 @@ next.addEventListener("click",()=>{
         iconStep2.classList.add("color")
         next.classList.add("hide")
         start.classList.remove("hide")
-        // next.innerHTML = "Start"
-        // next.classList.add("color3")
     }
     else if(!two.classList.contains("hide")){
         steps.forEach(step => { step.classList.add("hide"); });
@@ -96,8 +96,18 @@ let shuffledArr = questions.sort(()=> {
 
 function createQuestion(){
   display(indexQst);
-  indexQst++;
-    
+  let w = ((indexQst * 100)/(shuffledArr.length-1))
+  if(indexQst < shuffledArr.length-1){
+    progressBar.style.width= w+"%"
+    indexQst++;
+  }
+  else{
+    // sowing step4 (result)
+    progressBar.style.width= w+"%"
+    steps.forEach(step => { step.classList.add("hide"); });
+    four.classList.remove("hide");
+    iconStep4.classList.add("color")
+  }
 }
 function display(index){
   question.innerHTML = shuffledArr[index].question;
@@ -105,9 +115,6 @@ function display(index){
                         <button class="rep reponse2" onclick="createQuestion()">${shuffledArr[index].choiceB}</button>
                         <button class="rep reponse3" onclick="createQuestion()">${shuffledArr[index].choiceC}</button>
                         <button class="rep reponse4" onclick="createQuestion()">${shuffledArr[index].choiceD}</button>`
-  
-  // arrRand.splice(index,1);
-  // console.log(...arrRand)
 }
 
 // document.querySelector(".rep").addEventListener("click",()=>{

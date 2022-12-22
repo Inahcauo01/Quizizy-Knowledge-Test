@@ -175,4 +175,11 @@ input[type=radio] {
 .btns-question {
   width: 100%;
   justify-self: end;
+}
+
+.progressBar {
+  margin-top: -10px;
+  height: 10px;
+  width: 0%;
+  background-color: #094067;
 }/*# sourceMappingURL=main.css.map */
