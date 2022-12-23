@@ -186,4 +186,32 @@ input[type=radio] {
   height: 10px;
   width: 0%;
   background-color: #094067;
+}
+
+.correction-container {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+
+.correction {
+  text-align: start;
+  padding: 6px;
+  margin-top: 4px;
+  background-color: #90b4ce;
+  border-radius: 0px 10px 10px 0px;
+  color: white;
+  border-left: 6px solid greenyellow;
+  font-size: 15px;
+}
+
+.qst-corr {
+  text-align: start;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 12px 0 -4px 0;
+}
+
+.faux {
+  border-left: 6px solid crimson;
 }/*# sourceMappingURL=main.css.map */

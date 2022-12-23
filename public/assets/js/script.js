@@ -1,4 +1,4 @@
-
+//-------------declaration des variables--------------
 let start     = document.querySelector(".start")
 let next      = document.querySelector(".next");
 let previous  =  document.querySelector(".previous");
@@ -18,11 +18,20 @@ let reponses = document.querySelector(".reponses")
 start.classList.add("hide")
 iconStep1.classList.add("color")
 
-progressBar = document.querySelector(".progressBar");
-progress = document.querySelector(".progress");
-countdownText = document.querySelector(".countdown")
+progressBar  = document.querySelector(".progressBar");
+progress     = document.querySelector(".progress");
+countdownText= document.querySelector(".countdown")
 
-//stepper next
+let scoreText  = document.querySelector(".score")
+let correctionC = document.querySelector(".correction-container")
+let indexQst = 0;
+let score    = 0;
+let iCorrect = 0;
+let timeOut;
+let timer;
+let res = [];
+
+//--------------------stepper next---------------------
 next.addEventListener("click",()=>{
     previous.classList.remove("hide");
 
@@ -49,7 +58,8 @@ next.addEventListener("click",()=>{
         start.classList.remove("hide");
     }
 })
-//stepper previous
+
+//-------------------stepper previous------------------
 previous.addEventListener("click",()=>{
 
     if(!two.classList.contains("hide")){
@@ -77,7 +87,8 @@ previous.addEventListener("click",()=>{
         next.classList.remove("hide")
     }
 })
-// start button (step2)
+
+//------------------start button (step2)---------------
 start.addEventListener("click", ()=>{
       steps.forEach(step => { step.classList.add("hide"); });
         three.classList.remove("hide");
@@ -89,22 +100,27 @@ start.addEventListener("click", ()=>{
       
 })
 
-let indexQst = 0;
-// sort array using random order
+//-----triage du tableau d'une maniére aléatoire-------
 let shuffledArr = questions.sort(()=> {
   return Math.random() - 0.5;
 })
 
-let timeOut;
-let timer;
-
-// verification des questions
+//-------------verification des questions--------------
 function checkQuestion(elm){
-  console.log(elm.textContent)
+  //index = elm.id
+  if(elm.textContent == shuffledArr[elm.id].correct){
+    console.log("correct");
+    score++
+  }else{
+    res[iCorrect]=elm.id
+    iCorrect++
+    console.log(...res)
+    console.log("faux")
+  }
   createQuestion()
 }
 
-// creation des questions aleatoires 
+//---------creation des questions aleatoires-----------
 function createQuestion(){
 
   clearTimeout(timeOut)
@@ -125,15 +141,32 @@ function createQuestion(){
     steps.forEach(step => { step.classList.add("hide"); });
     four.classList.remove("hide");
     iconStep4.classList.add("color")
+    progress.classList.add("hide")
     countDown(-1)
+    scoreText.innerHTML = score;
+    shuffledArr.forEach((elm,index) =>{
+      correctionC.innerHTML += 
+      `<div class="qst-corr">${index+1}) ${elm.question}</div>
+      <div class="correction">
+        ${elm.justif}
+      </div>`;
+
+      res.forEach(element => {
+        if(element == index){
+          document.querySelector(".correction").classList.add("faux");
+        }
+      });
+    })
   }
 }
+
+//---------------affichage des questions---------------
 function display(index){
   question.innerHTML = shuffledArr[index].question;
-  reponses.innerHTML = `<button class="rep reponse1" onclick="checkQuestion(this)">${shuffledArr[index].choiceA}</button>
-                        <button class="rep reponse2" onclick="checkQuestion(this)">${shuffledArr[index].choiceB}</button>
-                        <button class="rep reponse3" onclick="checkQuestion(this)">${shuffledArr[index].choiceC}</button>
-                        <button class="rep reponse4" onclick="checkQuestion(this)">${shuffledArr[index].choiceD}</button>`;
+  reponses.innerHTML = `<button class="rep reponse1" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceA}</button>
+                        <button class="rep reponse2" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceB}</button>
+                        <button class="rep reponse3" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceC}</button>
+                        <button class="rep reponse4" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceD}</button>`;
   
   countDown(5);
   timeOut = setTimeout(() => {
@@ -142,11 +175,10 @@ function display(index){
     
 }
 
-// compte a rebours
+//------------------compte a rebours-------------------
 function countDown(sec){
   if(sec == -1){
     countdownText.innerHTML = "";
-    console.log("off : "+sec)
     bgColor(0)
     return 0  
   }else
@@ -171,7 +203,7 @@ function countDown(sec){
     
 }
 
-// background avec couleur (timer)
+//------------background avec couleur (timer)----------
 function bgColor(color){
   if(color == 0)
     document.querySelector("body").style.background= "radial-gradient(circle, rgb(220, 225, 255) 0%, rgba(255,255,255,1) 100%)"
