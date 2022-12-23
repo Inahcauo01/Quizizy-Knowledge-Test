@@ -26,7 +26,6 @@ let scoreText  = document.querySelector(".score")
 let correctionC = document.querySelector(".correction-container")
 let indexQst = 0;
 let score    = 0;
-let iCorrect = 0;
 let timeOut;
 let timer;
 let res = [];
@@ -112,8 +111,8 @@ function checkQuestion(elm){
     console.log("correct");
     score++
   }else{
-    res[iCorrect]=elm.id
-    iCorrect++
+    res.push(elm.id)
+    console.log("res : ")
     console.log(...res)
     console.log("faux")
   }
@@ -136,7 +135,7 @@ function createQuestion(){
     display(indexQst);
   }
   else{
-    // sowing step4 (result)
+    // showing step4 (result)
     progressBar.style.width= "0%"
     steps.forEach(step => { step.classList.add("hide"); });
     four.classList.remove("hide");
@@ -147,13 +146,14 @@ function createQuestion(){
     shuffledArr.forEach((elm,index) =>{
       correctionC.innerHTML += 
       `<div class="qst-corr">${index+1}) ${elm.question}</div>
-      <div class="correction">
+      <div class="correction" id="correction-${index+1}">
         ${elm.justif}
       </div>`;
-
+      console.log("\nindex : "+index)
       res.forEach(element => {
+        console.log("element : "+element)
         if(element == index){
-          document.querySelector(".correction").classList.add("faux");
+          document.querySelector("#correction-"+(index+1)).classList.add("faux");
         }
       });
     })
@@ -169,9 +169,7 @@ function display(index){
                         <button class="rep reponse4" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceD}</button>`;
   
   countDown(5);
-  timeOut = setTimeout(() => {
-    createQuestion()
-    console.log("Delayed for 5 second."+index) }, "5000")
+  timeOut = setTimeout(() => {createQuestion()}, "5000")
     
 }
 
