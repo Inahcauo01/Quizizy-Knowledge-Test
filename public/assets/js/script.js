@@ -97,6 +97,14 @@ let shuffledArr = questions.sort(()=> {
 
 let timeOut;
 let timer;
+
+// verification des questions
+function checkQuestion(elm){
+  console.log(elm.textContent)
+  createQuestion()
+}
+
+// creation des questions aleatoires 
 function createQuestion(){
 
   clearTimeout(timeOut)
@@ -122,10 +130,10 @@ function createQuestion(){
 }
 function display(index){
   question.innerHTML = shuffledArr[index].question;
-  reponses.innerHTML = `<button class="rep reponse1" onclick="createQuestion()">${shuffledArr[index].choiceA}</button>
-                        <button class="rep reponse2" onclick="createQuestion()">${shuffledArr[index].choiceB}</button>
-                        <button class="rep reponse3" onclick="createQuestion()">${shuffledArr[index].choiceC}</button>
-                        <button class="rep reponse4" onclick="createQuestion()">${shuffledArr[index].choiceD}</button>`;
+  reponses.innerHTML = `<button class="rep reponse1" onclick="checkQuestion(this)">${shuffledArr[index].choiceA}</button>
+                        <button class="rep reponse2" onclick="checkQuestion(this)">${shuffledArr[index].choiceB}</button>
+                        <button class="rep reponse3" onclick="checkQuestion(this)">${shuffledArr[index].choiceC}</button>
+                        <button class="rep reponse4" onclick="checkQuestion(this)">${shuffledArr[index].choiceD}</button>`;
   
   countDown(5);
   timeOut = setTimeout(() => {
@@ -134,6 +142,7 @@ function display(index){
     
 }
 
+// compte a rebours
 function countDown(sec){
   if(sec == -1){
     countdownText.innerHTML = "";
@@ -161,6 +170,8 @@ function countDown(sec){
     
     
 }
+
+// background avec couleur (timer)
 function bgColor(color){
   if(color == 0)
     document.querySelector("body").style.background= "radial-gradient(circle, rgb(220, 225, 255) 0%, rgba(255,255,255,1) 100%)"

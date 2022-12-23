@@ -98,6 +98,10 @@ ul{
     background: $background;
     padding: 10px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
 }
 
 .reponses{

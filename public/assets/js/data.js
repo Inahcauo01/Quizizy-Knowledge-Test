@@ -5,7 +5,7 @@ let questions = [
       choiceB: "Users retain full administrative access to their Amazon EC2 instances.",
       choiceC: "Amazon EC2 instances can be launched on demand when needed",
       choiceD: "Users can permanently run enough instances to handle peak workloads.",
-      correct: "C",
+      correct: "Amazon EC2 instances can be launched on demand when needed",
     },
     {
       question: "2Which AWS service would simplify the migration of a database to AWS?",
@@ -13,7 +13,7 @@ let questions = [
       choiceB: "AWS Database Migration Service (AWS DMS)",
       choiceC: "Amazon EC2",
       choiceD: "Amazon AppStream 2.0",
-      correct: "B",
+      correct: "AWS Database Migration Service (AWS DMS)",
     },
     {
       question: "3 Which AWS offering enables users to find, buy, and immediately start using software solutions in their AWS environment?",
@@ -21,7 +21,7 @@ let questions = [
       choiceB: "AWS OpsWorks",
       choiceC: "AWS SDK",
       choiceD: "AWS Marketplace",
-      correct: "D",
+      correct: "AWS Marketplace",
     },
     {
       question:"4Which AWS networking service enables a company to create a virtual network within AWS?",
@@ -29,7 +29,7 @@ let questions = [
       choiceB: "Amazon Route 53",
       choiceC: "AWS Direct Connect",
       choiceD: "Amazon Virtual Private Cloud (Amazon VPC)",
-      correct: "D",
+      correct: "Amazon Virtual Private Cloud (Amazon VPC)",
     },
     {
       question: "5Which of the following is an AWS responsibility under the AWS shared responsibility model?",
@@ -37,7 +37,7 @@ let questions = [
       choiceB: "Maintaining physical hardware",
       choiceC: "Securing application access and data",
       choiceD: "Managing guest operating systems",
-      correct: "B",
+      correct: "Maintaining physical hardware",
     },
     {
       question: "6Which component of the AWS global infrastructure does Amazon CloudFront use to ensure low-latency delivery?",
@@ -45,7 +45,7 @@ let questions = [
       choiceB: "Edge locations",
       choiceC: "Availability Zones",
       choiceD: "Virtual Private Cloud (VPC)",
-      correct: "B",
+      correct: "Edge locations",
     },
     {
       question: "7How would a system administrator add an additional layer of login security to a user's AWS Management Console?",
@@ -53,7 +53,7 @@ let questions = [
       choiceB: "Audit AWS Identity and Access Management (IAM) roles",
       choiceC: "Enable multi-factor authentication",
       choiceD: "Enable AWS CloudTrail",
-      correct: "C",
+      correct: "Enable multi-factor authentication",
     },
     {
       question: "8Which service can identify the user that made the API call when an Amazon EC2 instance is terminated?",
@@ -61,7 +61,7 @@ let questions = [
       choiceB: "AWS CloudTrail",
       choiceC: "AWS X-Ray",
       choiceD: "AWS Identity and Access Management (AWS IAM)",
-      correct: "B",
+      correct: "AWS CloudTrail",
     },
     {
       question: "9Which service would be used to send alerts based on Amazon CloudWatch alarms?",
@@ -69,7 +69,7 @@ let questions = [
       choiceB: "AWS CloudTrail",
       choiceC: "AWS Trusted Advisor",
       choiceD: "Amazon Route 53",
-      correct: "A",
+      correct: "Amazon Simple Notification Service (Amazon SNS)",
     },
     {
       question: "10Where can a user find information about prohibited actions on the AWS infrastructure?",
@@ -77,6 +77,6 @@ let questions = [
       choiceB: "AWS Identity and Access Management (IAM)",
       choiceC: "AWS Billing Console",
       choiceD: "AWS Acceptable Use Policy",
-      correct: "D",
+      correct: "AWS Acceptable Use Policy",
     },
 ];
