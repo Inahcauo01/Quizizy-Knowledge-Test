@@ -96,24 +96,28 @@ let shuffledArr = questions.sort(()=> {
 })
 
 let timeOut;
+let timer;
 function createQuestion(){
 
   clearTimeout(timeOut)
-
-  display(indexQst);
+  clearTimeout(timer)
+  
   //determiner le width selon la methode de trois 
   let w = ((indexQst * 100)/(shuffledArr.length-1))
+
   if(indexQst < shuffledArr.length-1){
     progressBar.style.width= w+"%"
     progress.innerHTML = (indexQst+1)+"/"+shuffledArr.length;
     indexQst++;
+    display(indexQst);
   }
   else{
     // sowing step4 (result)
-    progressBar.style.width= w+"%"
+    progressBar.style.width= "0%"
     steps.forEach(step => { step.classList.add("hide"); });
     four.classList.remove("hide");
     iconStep4.classList.add("color")
+    countDown(-1)
   }
 }
 function display(index){
@@ -123,19 +127,50 @@ function display(index){
                         <button class="rep reponse3" onclick="createQuestion()">${shuffledArr[index].choiceC}</button>
                         <button class="rep reponse4" onclick="createQuestion()">${shuffledArr[index].choiceD}</button>`;
   
+  countDown(5);
   timeOut = setTimeout(() => {
     createQuestion()
-    console.log("Delayed for 3 second."+index) }, "3000")
-}
-countDown(20);
-function countDown(sec){
-  countdownText.innerHTML = sec+" seconds";
-  sec--
-  let timer = setTimeout(()=>{
-    countDown(sec)
-  },1000)
+    console.log("Delayed for 5 second."+index) }, "5000")
+    
 }
 
+function countDown(sec){
+  if(sec == -1){
+    countdownText.innerHTML = "";
+    console.log("off : "+sec)
+    bgColor(0)
+    return 0  
+  }else
+  countdownText.innerHTML = sec+" seconds";
+  sec--;
+
+  bgColor(0)
+
+  if(sec<1)       bgColor(1)
+  else if(sec<2)  bgColor(2)
+  else if(sec<3)  bgColor(3)
+
+    timer = setTimeout(()=>{
+      if(sec >= 0){
+      countDown(sec)
+    }else{
+      clearTimeout(timer);
+    }
+    
+    },1000)
+    
+    
+}
+function bgColor(color){
+  if(color == 0)
+    document.querySelector("body").style.background= "radial-gradient(circle, rgb(220, 225, 255) 0%, rgba(255,255,255,1) 100%)"
+  else if(color == 1)
+    document.querySelector("body").style.background= "radial-gradient(circle, rgb(255, 200, 200) 0%, rgba(255,255,255,1) 100%)"
+  else if(color == 2)
+    document.querySelector("body").style.background= "radial-gradient(circle, rgb(243, 208, 218) 0%, rgba(255,255,255,1) 100%)"
+  else
+    document.querySelector("body").style.background= "radial-gradient(circle, rgb(232, 217, 237) 0%, rgba(255,255,255,1) 100%)"
+}
 
 // document.querySelector(".rep").addEventListener("click",()=>{
 //   createQuestion();
