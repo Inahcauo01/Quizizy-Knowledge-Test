@@ -97,7 +97,7 @@ start.addEventListener("click", ()=>{
         previous.classList.add("hide")
         next.classList.add("hide")
         start.classList.add("hide")
-      // createQuestion();
+      
       display(0)
       
 })
@@ -114,9 +114,8 @@ function checkQuestion(elm){
     console.log((elm.id)+" correct");
     score++
   }else{
-    res.push((elm.id)-1)
+    res.push((elm.id))
     console.log((elm.id)+" faux");
-    // console.log(...res)
   }
   createQuestion()
 }
