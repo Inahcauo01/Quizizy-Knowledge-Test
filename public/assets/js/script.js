@@ -99,6 +99,7 @@ start.addEventListener("click", ()=>{
         start.classList.add("hide")
       
       display(0)
+      triche();
       
 })
 
@@ -150,6 +151,7 @@ function createQuestion(){
       correctionC.innerHTML += `
       <img src="assets/images/fail.png" style="width:200px">
       <div style="color:tomato">Vous n'êtes pas respecté les régles de ce quiz !</div>`;
+      bgColor(1);
       scoreText.innerHTML = "0";
     }else{
       //le cas normal (n ya pas de triche)
@@ -222,7 +224,9 @@ function bgColor(color){
     document.querySelector("body").style.background= "radial-gradient(circle, rgb(232, 217, 237) 0%, rgba(255,255,255,1) 100%)"
 }
 
-//-------------Le cas de changer la page---------------
-window.addEventListener('blur', ()=>{
-  triche=true
-});
+//--------Le cas de tricher (changer la page)----------
+function triche(){
+  window.addEventListener('blur', ()=>{
+    triche=true
+  });
+}
