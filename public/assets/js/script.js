@@ -30,6 +30,8 @@ let timeOut;
 let timer;
 let res = [];
 
+let triche=false;
+
 //--------------------stepper next---------------------
 next.addEventListener("click",()=>{
     previous.classList.remove("hide");
@@ -62,7 +64,7 @@ next.addEventListener("click",()=>{
 previous.addEventListener("click",()=>{
 
     if(!two.classList.contains("hide")){
-        console.log("1")
+        // console.log("1")
         steps.forEach(step => { step.classList.add("hide"); });
         one.classList.remove("hide");
         next.classList.remove("color3")
@@ -73,13 +75,13 @@ previous.addEventListener("click",()=>{
         start.classList.add("hide")
     }
     else if(!three.classList.contains("hide")){
-        console.log("2")
+        // console.log("2")
         steps.forEach(step => { step.classList.add("hide"); });
         two.classList.remove("hide");
         iconStep3.classList.remove("color")
     }
     else if(!four.classList.contains("hide")){
-        console.log("3")
+        // console.log("3")
         steps.forEach(step => { step.classList.add("hide"); });
         three.classList.remove("hide");
         iconStep4.classList.remove("color")
@@ -95,7 +97,8 @@ start.addEventListener("click", ()=>{
         previous.classList.add("hide")
         next.classList.add("hide")
         start.classList.add("hide")
-      createQuestion();
+      // createQuestion();
+      display(0)
       
 })
 
@@ -105,16 +108,15 @@ let shuffledArr = questions.sort(()=> {
 })
 
 //-------------verification des questions--------------
-function checkQuestion(elm){
+function checkQuestion(elm){  
   //index = elm.id
   if(elm.textContent == shuffledArr[elm.id].correct){
-    console.log("correct");
+    console.log((elm.id)+" correct");
     score++
   }else{
-    res.push(elm.id)
-    console.log("res : ")
-    console.log(...res)
-    console.log("faux")
+    res.push((elm.id)-1)
+    console.log((elm.id)+" faux");
+    // console.log(...res)
   }
   createQuestion()
 }
@@ -127,11 +129,11 @@ function createQuestion(){
   
   //determiner le width selon la methode de trois 
   let w = ((indexQst * 100)/(shuffledArr.length-1))
-
+  
   if(indexQst < shuffledArr.length-1){
     progressBar.style.width= w+"%"
-    progress.innerHTML = (indexQst+1)+"/"+shuffledArr.length;
-    indexQst++;
+    progress.innerHTML = (indexQst+1)+"/"+shuffledArr.length;  
+    indexQst ++;
     display(indexQst);
   }
   else{
@@ -143,20 +145,28 @@ function createQuestion(){
     progress.classList.add("hide")
     countDown(-1)
     scoreText.innerHTML = score;
-    shuffledArr.forEach((elm,index) =>{
-      correctionC.innerHTML += 
-      `<div class="qst-corr">${index+1}) ${elm.question}</div>
-      <div class="correction" id="correction-${index+1}">
-        ${elm.justif}
-      </div>`;
-      console.log("\nindex : "+index)
-      res.forEach(element => {
-        console.log("element : "+element)
-        if(element == index){
-          document.querySelector("#correction-"+(index+1)).classList.add("faux");
-        }
-      });
-    })
+
+    if(triche){
+      //le cas de tricher (changer la page) lors du test
+      correctionC.innerHTML += `
+      <img src="assets/images/fail.png" style="width:200px">
+      <div style="color:tomato">Vous n'êtes pas respecté les régles de ce quiz !</div>`;
+      scoreText.innerHTML = "0";
+    }else{
+      //le cas normal (n ya pas de triche)
+      shuffledArr.forEach((elm,index) =>{   
+          correctionC.innerHTML += 
+          `<div class="qst-corr">${index+1}) ${elm.question}</div>
+          <div class="correction" id="correction-${index}">
+            ${elm.justif}
+          </div>`;
+          res.forEach(element => {
+            if(element == index){
+              document.querySelector("#correction-"+(index)).classList.add("faux");
+            }
+          });
+      })
+    }
   }
 }
 
@@ -213,7 +223,7 @@ function bgColor(color){
     document.querySelector("body").style.background= "radial-gradient(circle, rgb(232, 217, 237) 0%, rgba(255,255,255,1) 100%)"
 }
 
-// document.querySelector(".rep").addEventListener("click",()=>{
-//   createQuestion();
-// })
-
+//-------------Le cas de changer la page---------------
+window.addEventListener('blur', ()=>{
+  triche=true
+});
