@@ -132,7 +132,7 @@ function createQuestion(){
   
   if(indexQst < shuffledArr.length-1){
     progressBar.style.width= w+"%"
-    progress.innerHTML = (indexQst+1)+"/"+shuffledArr.length;  
+    progress.innerHTML = (indexQst)+"/"+shuffledArr.length;  
     indexQst ++;
     display(indexQst);
   }
@@ -184,7 +184,6 @@ function display(index){
     //le cas de ne pas repondre
     res.push(index)
     createQuestion()}, "5000")
-    
 }
 
 //------------------compte a rebours-------------------

@@ -168,3 +168,25 @@ input[type="radio"]{
 .faux{
     border-left: 6px solid crimson;
 }
+
+@media screen and (max-width: 800px) {
+    .stepper{
+        width: 100%;
+        height: 100%;
+        padding: 2px;
+    }
+    .step:nth-child(-n + 3){
+        padding: 6px;
+        text-align: start;
+    }
+    ul{
+        justify-content: space-between;
+        li{
+            margin-left: -25px;
+        }
+    }
+    
+}
+@media screen and (max-width: 400px){
+
+}
