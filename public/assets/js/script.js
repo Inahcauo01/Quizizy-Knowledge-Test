@@ -98,6 +98,7 @@ start.addEventListener("click", ()=>{
         next.classList.add("hide")
         start.classList.add("hide")
       
+      desactiverText();
       display(0)
       tricher();
       
@@ -229,4 +230,10 @@ function tricher(){
   window.addEventListener('blur', ()=>{
     triche=true
   });
+}
+
+//--------Empecher la selection du text du quiz--------
+function desactiverText(){
+  document.querySelector(".stepper").setAttribute("onselectstart","return false;");
+  document.querySelector(".stepper").setAttribute("onmousedown","return false;");
 }

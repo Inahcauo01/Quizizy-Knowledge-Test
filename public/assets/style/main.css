@@ -35,6 +35,10 @@ ul {
   padding: 10px;
   position: relative;
   height: 60%;
+  border-radius: 50px;
+  background: #ededed;
+  box-shadow: 20px 20px 60px #c9c9c9, -20px -20px 60px #ffffff;
+  cursor: default;
 }
 
 .step {
@@ -47,24 +51,36 @@ ul {
 
 .btns {
   text-align: center;
+  cursor: pointer;
 }
 
-.next, .previous, .start {
+.btnBtm {
   padding: 8px;
   font-size: 17px;
   width: 10rem;
   background: #3da9fc;
   color: #fffffe;
   border: none;
+  color: gray;
   border-radius: 2rem;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #d5d5d5, #fefefe);
+  box-shadow: 20px 20px 60px #c9c9c9, -20px -20px 60px #ffffff;
+  cursor: pointer;
 }
-.next:hover, .previous:hover, .start:hover {
-  background: #094067;
-  transition: 0.5s;
+.btnBtm:hover {
+  border: 1px solid lightgray;
+  background: linear-gradient(225deg, #fefefe, #d5d5d5);
+  box-shadow: -20px 20px 60px #c9c9c9, 20px -20px 60px #ffffff;
+  transition: 0.3s;
 }
 
 .start {
   background: #ef4565;
+  color: lightgray;
+}
+.start:hover {
+  color: gray;
 }
 
 .hide {
@@ -72,7 +88,8 @@ ul {
 }
 
 .color {
-  color: #3da9fc;
+  color: #41729F;
+  filter: brightness(1.5);
 }
 
 .color3 {
@@ -90,7 +107,6 @@ ul {
 }
 
 .quetionnaire {
-  background: #fffffe;
   padding: 10px;
   height: 100%;
   display: flex;
@@ -110,66 +126,74 @@ ul {
 
 .reponse1 {
   grid-area: reponse1;
-  background-color: #094067;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   font-size: 16px;
   padding: 12px;
-  color: white;
-  border: none;
+  color: gray;
+  border: 1px solid lightgray;
+  border-radius: 10px;
 }
 .reponse1:hover {
-  background-color: #3da9fc;
+  color: #094067;
+  background: #ededed;
+  box-shadow: 20px 20px 60px #c9c9c9, -20px -20px 60px #ffffff;
 }
 
 .reponse2 {
   grid-area: reponse2;
-  background-color: #094067;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   font-size: 16px;
   padding: 12px;
-  color: white;
-  border: none;
+  color: gray;
+  border: 1px solid lightgray;
+  border-radius: 10px;
 }
 .reponse2:hover {
-  background-color: #3da9fc;
+  color: #094067;
+  background: #ededed;
+  box-shadow: 20px 20px 60px #c9c9c9, -20px -20px 60px #ffffff;
 }
 
 .reponse3 {
   grid-area: reponse3;
-  background-color: #094067;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   font-size: 16px;
   padding: 12px;
-  color: white;
-  border: none;
+  color: gray;
+  border: 1px solid lightgray;
+  border-radius: 10px;
 }
 .reponse3:hover {
-  background-color: #3da9fc;
+  color: #094067;
+  background: #ededed;
+  box-shadow: 20px 20px 60px #c9c9c9, -20px -20px 60px #ffffff;
 }
 
 .reponse4 {
   grid-area: reponse4;
-  background-color: #094067;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   font-size: 16px;
   padding: 12px;
-  color: white;
-  border: none;
+  color: gray;
+  border: 1px solid lightgray;
+  border-radius: 10px;
 }
 .reponse4:hover {
-  background-color: #3da9fc;
+  color: #094067;
+  background: #ededed;
+  box-shadow: 20px 20px 60px #c9c9c9, -20px -20px 60px #ffffff;
 }
 
 input[type=radio] {
@@ -227,6 +251,7 @@ input[type=radio] {
     text-align: start;
   }
   ul {
+    margin-right: 26px;
     justify-content: space-between;
   }
   ul li {

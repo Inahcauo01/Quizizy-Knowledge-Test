@@ -47,6 +47,11 @@ ul{
     padding: 10px;
     position: relative;
     height: 60%;
+    border-radius: 50px;
+    background: #ededed;
+    box-shadow:  20px 20px 60px #c9c9c9,
+                -20px -20px 60px #ffffff;
+    cursor: default;
 }
 
 .step{
@@ -58,28 +63,44 @@ ul{
 }
 .btns{
     text-align: center;
+    cursor: pointer;
 }
-.next,.previous,.start{
-        padding: 8px;
-        font-size: 17px;
-        width: 10rem;
-        background: $button;
-        color: $button-text;
-        border: none;
-        border-radius: 2rem;
-        &:hover{
-            background: $headline;
-            transition: .5s
-        }
+.btnBtm{
+    padding: 8px;
+    font-size: 17px;
+    width: 10rem;
+    background: $button;
+    color: $button-text;
+    border: none;
+    color: gray;
+    border-radius: 2rem;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #d5d5d5, #fefefe);
+    box-shadow:  20px 20px 60px #c9c9c9,
+             -20px -20px 60px #ffffff;
+    
+    cursor: pointer;
+    &:hover{
+        border: 1px solid lightgray;
+        background: linear-gradient(225deg, #fefefe, #d5d5d5);
+        box-shadow:  -20px 20px 60px #c9c9c9,
+                     20px -20px 60px #ffffff;
+        transition: .3s
+    }
 }
 .start{
     background: $tertiary;
+    color: lightgray;
+    &:hover{
+        color: gray;
+    }
 }
 .hide{
     display: none;
 }
 .color{
-    color: $button;
+    color: #41729F;
+    filter: brightness(1.5);
 }
 .color3{
     background: $tertiary;
@@ -95,7 +116,6 @@ ul{
 }
 
 .quetionnaire{
-    background: $background;
     padding: 10px;
     height: 100%;
     display: flex;
@@ -118,15 +138,20 @@ ul{
 @for $i from 1 through 4{
     .reponse#{$i}{
         grid-area: reponse#{$i};
-        background-color: #094067;
+        // background-color: #094067;
         @include flex-center;
         cursor: pointer;
         font-size: 16px;
         padding: 12px;
-        color: white;
-        border: none;
+        color: gray;
+        border: 1px solid lightgray;
+        border-radius: 10px;
+        
         &:hover{
-            background-color: $button;
+            color: $headline;
+            background: #ededed;
+            box-shadow:  20px 20px 60px #c9c9c9,
+                        -20px -20px 60px #ffffff;
         }
     }
 }
@@ -180,13 +205,11 @@ input[type="radio"]{
         text-align: start;
     }
     ul{
+        margin-right: 26px;
         justify-content: space-between;
         li{
             margin-left: -25px;
         }
     }
     
-}
-@media screen and (max-width: 400px){
-
 }

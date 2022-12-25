@@ -11,6 +11,7 @@
 </head>
 <body>
     <div class="container">
+        <!-- <div class="stepper" onselectstart="return false;" onmousedown="return false;"> -->
         <div class="stepper">
             <ul>
                 <li>
@@ -29,7 +30,7 @@
             <hr>
             <div class="progressBar"></div>
             <div class="stepper-content">
-                <div class="step one">page 1
+                <div class="step one" unselectable="on">page 1
                     <h3>Testez vos connaissances</h3>
                     Ce test contient une banque des questions sur AWS (Amazon Web Services) Practitioner pour examiner les connaissances techniques. <br>
                     Le résultat va être affiché vers la fin de test, ainsi que l'explication de chaque réponse correcte 
@@ -64,9 +65,9 @@
                     </div>
                 </div>
                 <div class="btns">
-                    <button class="previous hide">previous</button>
-                    <button class="next">next</button>
-                    <button class="start">START</button>
+                    <button class="btnBtm previous hide">previous</button>
+                    <button class="btnBtm next">next</button>
+                    <button class="btnBtm start">START</button>
                     <div class="progress"></div>
                     <div class="countdown"></div>
                 </div>
