@@ -22,10 +22,10 @@ progressBar  = document.querySelector(".progressBar");
 progress     = document.querySelector(".progress");
 countdownText= document.querySelector(".countdown")
 
-let scoreText  = document.querySelector(".score")
+let scoreText   = document.querySelector(".score")
 let correctionC = document.querySelector(".correction-container")
-let indexQst = 0;
-let score    = 0;
+let indexQst    = 0;
+let score       = 0;
 let timeOut;
 let timer;
 let res = [];
@@ -112,14 +112,13 @@ let shuffledArr = questions.sort(()=> {
 function checkQuestion(elm){  
   //index = elm.id
   if(elm.textContent == shuffledArr[elm.id].correct){
-    // console.log((elm.id)+" correct");
+    console.log((elm.id)+" correct");
     score++
   }else{
     res.push((elm.id))
-    // console.log((elm.id)+" faux");
+    console.log((elm.id)+" faux");
   }
   createQuestion()
-  console.log("elm.id "+elm.id)
 }
 
 //---------creation des questions aleatoires-----------
@@ -210,9 +209,7 @@ function countDown(sec){
     }else{
       clearTimeout(timer);
     }
-    
     },1000)
-    
     
 }
 
