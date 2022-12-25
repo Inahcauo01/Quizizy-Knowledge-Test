@@ -99,7 +99,7 @@ start.addEventListener("click", ()=>{
         start.classList.add("hide")
       
       display(0)
-      triche();
+      tricher();
       
 })
 
@@ -112,13 +112,14 @@ let shuffledArr = questions.sort(()=> {
 function checkQuestion(elm){  
   //index = elm.id
   if(elm.textContent == shuffledArr[elm.id].correct){
-    console.log((elm.id)+" correct");
+    // console.log((elm.id)+" correct");
     score++
   }else{
     res.push((elm.id))
-    console.log((elm.id)+" faux");
+    // console.log((elm.id)+" faux");
   }
   createQuestion()
+  console.log("elm.id "+elm.id)
 }
 
 //---------creation des questions aleatoires-----------
@@ -180,7 +181,10 @@ function display(index){
                         <button class="rep reponse4" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceD}</button>`;
   
   countDown(5);
-  timeOut = setTimeout(() => {createQuestion()}, "5000")
+  timeOut = setTimeout(() => {
+    //le cas de ne pas repondre
+    res.push(index)
+    createQuestion()}, "5000")
     
 }
 
@@ -225,7 +229,7 @@ function bgColor(color){
 }
 
 //--------Le cas de tricher (changer la page)----------
-function triche(){
+function tricher(){
   window.addEventListener('blur', ()=>{
     triche=true
   });
