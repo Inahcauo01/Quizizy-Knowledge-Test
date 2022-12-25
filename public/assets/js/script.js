@@ -190,10 +190,18 @@ function showResult(){
           });
       })
       let scorePerCent = ((score*100)/(shuffledArr.length));
-      if(scorePerCent <= 30) bgColor(1)
-      else if(scorePerCent < 50 && scorePerCent>3) bgColor(2)
-      else if(scorePerCent > 50) bgColor(9)
-      console.log("score : "+scorePerCent)
+      if(scorePerCent <= 30) {
+        bgColor(1)
+        scoreText.style.color = "red"
+      }
+      else if(scorePerCent < 50 && scorePerCent>3) {
+        bgColor(2)
+        scoreText.style.color = "tomato"
+      }
+      else if(scorePerCent > 50) {
+        bgColor(9)
+        scoreText.style.color = "greenyellow"
+      }
     }
 }
 
