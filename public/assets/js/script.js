@@ -140,6 +140,27 @@ function createQuestion(){
   else{
     // showing step4 (result)
     progressBar.style.width= "0%"
+    showResult();
+  }
+}
+
+//---------------affichage des questions---------------
+function display(index){
+  question.innerHTML = shuffledArr[index].question;
+  reponses.innerHTML = `<button class="rep reponse1" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceA}</button>
+                        <button class="rep reponse2" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceB}</button>
+                        <button class="rep reponse3" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceC}</button>
+                        <button class="rep reponse4" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceD}</button>`;
+  
+  countDown(5);
+  timeOut = setTimeout(() => {
+    //le cas de ne pas repondre
+    res.push(index)
+    createQuestion()}, "5000")
+}
+
+// affichage de resultat
+function showResult(){
     steps.forEach(step => { step.classList.add("hide"); });
     four.classList.remove("hide");
     iconStep4.classList.add("color")
@@ -168,23 +189,12 @@ function createQuestion(){
             }
           });
       })
+      let scorePerCent = ((score*100)/(shuffledArr.length));
+      if(scorePerCent <= 30) bgColor(1)
+      else if(scorePerCent < 50 && scorePerCent>3) bgColor(2)
+      else if(scorePerCent > 50) bgColor(9)
+      console.log("score : "+scorePerCent)
     }
-  }
-}
-
-//---------------affichage des questions---------------
-function display(index){
-  question.innerHTML = shuffledArr[index].question;
-  reponses.innerHTML = `<button class="rep reponse1" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceA}</button>
-                        <button class="rep reponse2" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceB}</button>
-                        <button class="rep reponse3" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceC}</button>
-                        <button class="rep reponse4" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceD}</button>`;
-  
-  countDown(5);
-  timeOut = setTimeout(() => {
-    //le cas de ne pas repondre
-    res.push(index)
-    createQuestion()}, "5000")
 }
 
 //------------------compte a rebours-------------------
@@ -221,8 +231,11 @@ function bgColor(color){
     document.querySelector("body").style.background= "radial-gradient(circle, rgb(255, 200, 200) 0%, rgba(255,255,255,1) 100%)"
   else if(color == 2)
     document.querySelector("body").style.background= "radial-gradient(circle, rgb(243, 208, 218) 0%, rgba(255,255,255,1) 100%)"
-  else
+  else if(color == 3)
     document.querySelector("body").style.background= "radial-gradient(circle, rgb(232, 217, 237) 0%, rgba(255,255,255,1) 100%)"
+  else{
+    document.querySelector("body").style.background= "radial-gradient(circle, rgb(205, 255, 220) 0%, rgba(255,255,255,1) 100%)"
+  }
 }
 
 //--------Le cas de tricher (changer la page)----------
