@@ -3,7 +3,6 @@
 }
 
 body {
-  background: rgb(201, 212, 255);
   background: radial-gradient(circle, rgb(220, 225, 255) 0%, rgb(255, 255, 255) 100%);
 }
 
@@ -30,8 +29,6 @@ ul {
 .stepper {
   width: 60%;
   color: #5f6c7b;
-  background: #fffffe;
-  border-radius: 10px;
   padding: 10px;
   position: relative;
   height: 60%;
@@ -58,8 +55,6 @@ ul {
   padding: 8px;
   font-size: 17px;
   width: 10rem;
-  background: #3da9fc;
-  color: #fffffe;
   border: none;
   color: gray;
   border-radius: 2rem;
@@ -196,10 +191,6 @@ ul {
   box-shadow: 20px 20px 60px #c9c9c9, -20px -20px 60px #ffffff;
 }
 
-input[type=radio] {
-  display: none;
-}
-
 .btns-question {
   width: 100%;
   justify-self: end;
@@ -256,6 +247,24 @@ input[type=radio] {
   box-shadow: 20px 20px 60px #c9c9c9, -20px -20px 60px #ffffff;
 }
 
+.dark-light {
+  padding: 3px;
+  border-radius: 50%;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #d5d5d5, #fefefe);
+  box-shadow: 20px 20px 60px #c9c9c9, -20px -20px 60px #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+}
+
+.img-dark, .img-light {
+  border: none;
+  border-radius: 50%;
+}
+
 @media screen and (max-width: 800px) {
   .stepper {
     width: 100%;
@@ -272,5 +281,9 @@ input[type=radio] {
   }
   ul li {
     margin-left: -25px;
+  }
+  .dark-light {
+    z-index: 1000;
+    top: 92%;
   }
 }/*# sourceMappingURL=main.css.map */

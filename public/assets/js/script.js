@@ -31,6 +31,7 @@ let timer;
 let res = [];
 
 let triche=false;
+let darkM=false;
 
 let username = document.querySelector("#input-username");
 let hsNom    = document.querySelector(".highScore-nom");
@@ -224,7 +225,7 @@ function countDown(sec){
     bgColor(0)
     return 0  
   }else
-  countdownText.innerHTML = sec+" seconds";
+  countdownText.innerHTML = "<img src=\"assets/images/timer.png\" style=\"width:16px\"> "+sec+" seconds";
   sec--;
 
   bgColor(0)
@@ -245,16 +246,30 @@ function countDown(sec){
 
 //------------background avec couleur (timer)----------
 function bgColor(color){
-  if(color == 0)
-    document.querySelector("body").style.background= "radial-gradient(circle, rgb(220, 225, 255) 0%, rgba(255,255,255,1) 100%)"
-  else if(color == 1)
-    document.querySelector("body").style.background= "radial-gradient(circle, rgb(255, 200, 200) 0%, rgba(255,255,255,1) 100%)"
-  else if(color == 2)
-    document.querySelector("body").style.background= "radial-gradient(circle, rgb(243, 208, 218) 0%, rgba(255,255,255,1) 100%)"
-  else if(color == 3)
-    document.querySelector("body").style.background= "radial-gradient(circle, rgb(232, 217, 237) 0%, rgba(255,255,255,1) 100%)"
-  else{
-    document.querySelector("body").style.background= "radial-gradient(circle, rgb(205, 255, 220) 0%, rgba(255,255,255,1) 100%)"
+  if(darkM){
+    if(color == 0)
+      document.querySelector("body").style.background= "radial-gradient(circle, #363636 0%, rgb(40, 40, 55) 100%)"
+    else if(color == 1)
+      document.querySelector("body").style.background= "radial-gradient(circle, #363636 0%, rgb(40, 10, 28) 100%)"
+    else if(color == 2)
+      document.querySelector("body").style.background= "radial-gradient(circle, #363636 0%, rgb(35, 15, 22) 100%)"
+    else if(color == 3)
+      document.querySelector("body").style.background= "radial-gradient(circle, #363636 0%, rgb(30, 17, 30) 100%)"
+    else{
+      document.querySelector("body").style.background= "radial-gradient(circle, #363636 0%, #363636 100%)"
+    }
+  }else{
+    if(color == 0)
+      document.querySelector("body").style.background= "radial-gradient(circle, rgb(220, 225, 255) 0%, rgba(255,255,255,1) 100%)"
+    else if(color == 1)
+      document.querySelector("body").style.background= "radial-gradient(circle, rgb(255, 200, 200) 0%, rgba(255,255,255,1) 100%)"
+    else if(color == 2)
+      document.querySelector("body").style.background= "radial-gradient(circle, rgb(243, 208, 218) 0%, rgba(255,255,255,1) 100%)"
+    else if(color == 3)
+      document.querySelector("body").style.background= "radial-gradient(circle, rgb(232, 217, 237) 0%, rgba(255,255,255,1) 100%)"
+    else{
+      document.querySelector("body").style.background= "radial-gradient(circle, rgb(205, 255, 220) 0%, rgba(255,255,255,1) 100%)"
+    }
   }
 }
 
@@ -275,4 +290,51 @@ function desactiverText(){
 function highScore(){
   localStorage.setItem("nom",username.value);
   localStorage.setItem("score",score);
+}
+
+//-------------------Dark/light mode-------------------
+function darklight(elm){
+  let bgLight   = "#ededed";
+  let bgDark    = "#363636";
+  let boxSlight = "20px 20px 60px #c9c9c9,-20px -20px 60px #ffffff";
+  let boxSdark  = "20px 20px 60px #2e2e2e,-20px -20px 60px #3e3e3e";
+
+  elm.classList.add("hide")
+  if(elm.id == "moon"){
+    document.querySelector("#sun").classList.remove("hide");
+    document.querySelector(".stepper").style.background    = bgDark;
+    document.querySelector(".stepper").style.boxShadow     = boxSdark;
+    document.querySelector("body").style.background        = bgDark;
+    document.querySelector(".dark-light").style.background = bgDark;
+    document.querySelector(".dark-light").style.boxShadow  = boxSdark;
+    document.querySelectorAll(".btnBtm").forEach(btn => { 
+                                      btn.style.background = bgDark;
+                                      btn.style.boxShadow  = boxSdark; });
+    document.querySelectorAll(".rep").forEach(rep => { 
+                                      rep.style.background = bgDark;
+                                      rep.style.boxShadow  = boxSdark; });                                  
+    username.style.background = bgDark;
+    username.style.boxShadow  = boxSdark;
+    username.style.color      = bgLight;
+    
+    darkM = true;
+  }else{
+    document.querySelector("#moon").classList.remove("hide");
+    document.querySelector(".stepper").style.background    = bgLight;
+    document.querySelector(".stepper").style.boxShadow     = boxSlight
+    document.querySelector("body").style.background        = "radial-gradient(circle, rgb(220, 225, 255) 0%, rgba(255,255,255,1) 100%)";
+    document.querySelector(".dark-light").style.background = bgLight;
+    document.querySelector(".dark-light").style.boxShadow  = boxSlight;
+    document.querySelectorAll(".btnBtm").forEach(btn => { 
+                                      btn.style.background = bgLight;
+                                      btn.style.boxShadow  = boxSlight;  });
+    // document.querySelectorAll(".rep").forEach(rep => { 
+    //                                   rep.style.background = bgLight;
+    //                                   rep.style.boxShadow  = boxSlight; });  
+    username.style.background = bgLight;
+    username.style.boxShadow  = boxSlight;
+    username.style.color      = bgDark;
+
+    darkM = false;
+  }
 }
