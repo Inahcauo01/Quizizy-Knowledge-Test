@@ -32,6 +32,10 @@ let res = [];
 
 let triche=false;
 
+let username = document.querySelector("#input-username");
+let hsNom    = document.querySelector(".highScore-nom");
+let hsScore    = document.querySelector(".highScore-score");
+
 //--------------------stepper next---------------------
 next.addEventListener("click",()=>{
     previous.classList.remove("hide");
@@ -129,23 +133,24 @@ function createQuestion(){
   clearTimeout(timer)
   
   //determiner le width selon la methode de trois 
-  let w = ((indexQst * 100)/(shuffledArr.length-1))
+  let w = (((indexQst+1) * 100)/(shuffledArr.length-1))
   
   if(indexQst < shuffledArr.length-1){
     progressBar.style.width= w+"%"
-    progress.innerHTML = (indexQst)+"/"+shuffledArr.length;  
-    indexQst ++;
     display(indexQst);
   }
   else{
     // showing step4 (result)
-    progressBar.style.width= "0%"
+    progressBar.style.display= "none"
     showResult();
   }
 }
 
 //---------------affichage des questions---------------
 function display(index){
+  progress.innerHTML = (indexQst+1)+"/"+shuffledArr.length;  
+  indexQst ++;
+
   question.innerHTML = shuffledArr[index].question;
   reponses.innerHTML = `<button class="rep reponse1" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceA}</button>
                         <button class="rep reponse2" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceB}</button>
@@ -166,7 +171,11 @@ function showResult(){
     iconStep4.classList.add("color")
     progress.classList.add("hide")
     countDown(-1)
+    // le high score
+    if(score > localStorage.getItem("score"))   highScore();
     scoreText.innerHTML = score;
+    hsNom.innerHTML     = localStorage.getItem("nom")
+    hsScore.innerHTML   = localStorage.getItem("score")
 
     if(triche){
       //le cas de tricher (changer la page) lors du test
@@ -175,9 +184,12 @@ function showResult(){
       <div style="color:tomato">Vous n'êtes pas respecté les régles de ce quiz !</div>`;
       bgColor(1);
       scoreText.innerHTML = "0";
+      document.querySelector(".four").style.backgroundColor ="none"
+      document.querySelector(".four").style.boxShadow  ="none"
     }else{
       //le cas normal (n ya pas de triche)
-      shuffledArr.forEach((elm,index) =>{   
+      document.querySelector(".stepper").classList.add("res-four")
+      shuffledArr.forEach((elm,index) =>{
           correctionC.innerHTML += 
           `<div class="qst-corr">${index+1}) ${elm.question}</div>
           <div class="correction" id="correction-${index}">
@@ -200,7 +212,7 @@ function showResult(){
       }
       else if(scorePerCent > 50) {
         bgColor(9)
-        scoreText.style.color = "greenyellow"
+        scoreText.style.color = "green"
       }
     }
 }
@@ -257,4 +269,10 @@ function tricher(){
 function desactiverText(){
   document.querySelector(".stepper").setAttribute("onselectstart","return false;");
   document.querySelector(".stepper").setAttribute("onmousedown","return false;");
+}
+
+//---------------Detecter le high score----------------
+function highScore(){
+  localStorage.setItem("nom",username.value);
+  localStorage.setItem("score",score);
 }

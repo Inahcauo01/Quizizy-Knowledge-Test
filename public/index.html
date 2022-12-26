@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="assets/images/icon.png">
+    <link rel="icon" type="image/x-icon" href="assets/images/iconQ.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/style/main.css">
     <title>Quizizy</title>
@@ -30,7 +30,7 @@
             <hr>
             <div class="progressBar"></div>
             <div class="stepper-content">
-                <div class="step one" unselectable="on">page 1
+                <div class="step one" unselectable="on">
                     <h3>Testez vos connaissances</h3>
                     Ce test contient une banque des questions sur AWS (Amazon Web Services) Practitioner pour examiner les connaissances techniques. <br>
                     Le résultat va être affiché vers la fin de test, ainsi que l'explication de chaque réponse correcte 
@@ -42,6 +42,9 @@
                         </li>
                         <li>
                             Chaque question ne peut pas dépasser 30sec, si le timing est cloturé dans ce cas la question doit être considéré comme une réponse fausse.
+                        </li>
+                        <li>
+                            Ne sort pas de la page lors du test, et chaque sortie considerer comme une triche
                         </li>
                         <div>
                             <label for="input-username">Enter your name</label>
@@ -59,7 +62,10 @@
                 </div>
                 <div class="step four hide">Resultat <br>
                     <div>Your score : <span class="score"></span></div>
-                    <p class="high-score">high score : </p>
+                    <p class="high-score">high score : <br>
+                                        <span class="highScore-nom"></span>
+                                        <span class="highScore-score"></span>
+                                    </p>
                     <div class="correction-container">
                         <!-- ici l'affichage des corrections -->
                     </div>

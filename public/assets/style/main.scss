@@ -56,11 +56,12 @@ ul{
 
 .step{
     font-size: 18px;
-    line-height: 1.9rem;
+    line-height: 1.5rem;
     padding: 10px 3rem;
     text-align: center;
     margin-top: 14px;
 }
+
 .btns{
     text-align: center;
     cursor: pointer;
@@ -192,6 +193,23 @@ input[type="radio"]{
 }
 .faux{
     border-left: 6px solid crimson;
+}
+
+.res-four{
+   height: 100%;
+   position: relative;
+   padding: 0px;
+   margin: 0px;
+}
+.four{
+    position: relative;
+    margin: 0px;
+    padding-bottom: 2rem;
+    border-radius: 0 0 26px 26px;
+    background-color: #ededed;
+    box-shadow:  20px 20px 60px #c9c9c9,
+                -20px -20px 60px #ffffff;
+    
 }
 
 @media screen and (max-width: 800px) {
