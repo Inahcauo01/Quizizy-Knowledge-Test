@@ -310,14 +310,18 @@ function darklight(elm){
     document.querySelectorAll(".btnBtm").forEach(btn => { 
                                       btn.style.background = bgDark;
                                       btn.style.boxShadow  = boxSdark; });
-    document.querySelectorAll(".rep").forEach(rep => { 
+
+    // setInterval(()=>{
+      document.querySelectorAll(".rep").forEach(rep => { 
                                       rep.style.background = bgDark;
-                                      rep.style.boxShadow  = boxSdark; });                                  
+                                      rep.style.boxShadow  = boxSdark; })
+                                    // },1000);                               
     username.style.background = bgDark;
     username.style.boxShadow  = boxSdark;
     username.style.color      = bgLight;
     
     darkM = true;
+
   }else{
     document.querySelector("#moon").classList.remove("hide");
     document.querySelector(".stepper").style.background    = bgLight;
@@ -328,9 +332,13 @@ function darklight(elm){
     document.querySelectorAll(".btnBtm").forEach(btn => { 
                                       btn.style.background = bgLight;
                                       btn.style.boxShadow  = boxSlight;  });
-    // document.querySelectorAll(".rep").forEach(rep => { 
-    //                                   rep.style.background = bgLight;
-    //                                   rep.style.boxShadow  = boxSlight; });  
+                                      
+    // setInterval(()=>{
+      document.querySelectorAll(".rep").forEach(rep => { 
+                                      rep.style.background = bgLight;
+                                      rep.style.boxShadow  = boxSlight; })
+                                    // },1000);
+    
     username.style.background = bgLight;
     username.style.boxShadow  = boxSlight;
     username.style.color      = bgDark;
