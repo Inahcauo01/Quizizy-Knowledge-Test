@@ -134,9 +134,9 @@ function createQuestion(){
   clearTimeout(timer)
   
   //determiner le width selon la methode de trois 
-  let w = (((indexQst+1) * 100)/(shuffledArr.length-1))
+  let w = (((indexQst+1) * 100)/(shuffledArr.length))
   
-  if(indexQst < shuffledArr.length-1){
+  if(indexQst < shuffledArr.length){
     progressBar.style.width= w+"%"
     display(indexQst);
   }
