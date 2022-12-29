@@ -35,7 +35,7 @@ let darkM=false;
 
 let username = document.querySelector("#input-username");
 let hsNom    = document.querySelector(".highScore-nom");
-let hsScore    = document.querySelector(".highScore-score");
+let hsScore  = document.querySelector(".highScore-score");
 
 //--------------------stepper next---------------------
 next.addEventListener("click",()=>{
@@ -153,11 +153,15 @@ function display(index){
   indexQst ++;
 
   question.innerHTML = shuffledArr[index].question;
-  reponses.innerHTML = `<button class="rep reponse1" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceA}</button>
-                        <button class="rep reponse2" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceB}</button>
-                        <button class="rep reponse3" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceC}</button>
-                        <button class="rep reponse4" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceD}</button>`;
-  
+  // reponses.innerHTML = `<button class="rep reponse1" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceA}</button>
+  //                       <button class="rep reponse2" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceB}</button>
+  //                       <button class="rep reponse3" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceC}</button>
+  //                       <button class="rep reponse4" id="${index}" onclick="checkQuestion(this)">${shuffledArr[index].choiceD}</button>`;
+  document.querySelector(".reponse1").innerHTML =  shuffledArr[index].choiceA;      document.querySelector(".reponse1").setAttribute("id",index);
+  document.querySelector(".reponse2").innerHTML =  shuffledArr[index].choiceB;      document.querySelector(".reponse2").setAttribute("id",index);
+  document.querySelector(".reponse3").innerHTML =  shuffledArr[index].choiceC;      document.querySelector(".reponse3").setAttribute("id",index);
+  document.querySelector(".reponse4").innerHTML =  shuffledArr[index].choiceD;      document.querySelector(".reponse4").setAttribute("id",index);
+
   countDown(5);
   timeOut = setTimeout(() => {
     //le cas de ne pas repondre
@@ -311,15 +315,14 @@ function darklight(elm){
                                       btn.style.background = bgDark;
                                       btn.style.boxShadow  = boxSdark; });
 
-    // setInterval(()=>{
-      document.querySelectorAll(".rep").forEach(rep => { 
+    document.querySelectorAll(".rep").forEach(rep => { 
                                       rep.style.background = bgDark;
-                                      rep.style.boxShadow  = boxSdark; })
-                                    // },1000);                               
+                                      rep.style.boxShadow  = boxSdark; })                          
     username.style.background = bgDark;
     username.style.boxShadow  = boxSdark;
     username.style.color      = bgLight;
-    
+    four.style.background     = bgDark;
+    four.style.boxShadow      = boxSdark;
     darkM = true;
 
   }else{
@@ -332,16 +335,15 @@ function darklight(elm){
     document.querySelectorAll(".btnBtm").forEach(btn => { 
                                       btn.style.background = bgLight;
                                       btn.style.boxShadow  = boxSlight;  });
-                                      
-    // setInterval(()=>{
       document.querySelectorAll(".rep").forEach(rep => { 
                                       rep.style.background = bgLight;
                                       rep.style.boxShadow  = boxSlight; })
-                                    // },1000);
     
     username.style.background = bgLight;
     username.style.boxShadow  = boxSlight;
     username.style.color      = bgDark;
+    four.style.background     = bgLight;
+    four.style.boxShadow      = boxSlight;
 
     darkM = false;
   }
