@@ -12,15 +12,15 @@ let iconStep2 = document.querySelector(".icon-step2")
 let iconStep3 = document.querySelector(".icon-step3")
 let iconStep4 = document.querySelector(".icon-step4")
 
-let question = document.querySelector(".quetion")
-let reponses = document.querySelector(".reponses")
+let question  = document.querySelector(".quetion")
+let reponses  = document.querySelector(".reponses")
 
 start.classList.add("hide")
 iconStep1.classList.add("color")
 
-progressBar  = document.querySelector(".progressBar");
-progress     = document.querySelector(".progress");
-countdownText= document.querySelector(".countdown")
+progressBar   = document.querySelector(".progressBar");
+progress      = document.querySelector(".progress");
+countdownText = document.querySelector(".countdown")
 
 let scoreText   = document.querySelector(".score")
 let correctionC = document.querySelector(".correction-container")
@@ -324,7 +324,7 @@ function darklight(elm){
     four.style.background     = bgDark;
     four.style.boxShadow      = boxSdark;
     darkM = true;
-
+    
   }else{
     document.querySelector("#moon").classList.remove("hide");
     document.querySelector(".stepper").style.background    = bgLight;

@@ -54,6 +54,12 @@ ul{
     box-shadow:  20px 20px 60px $bg-light-1,
                 -20px -20px 60px $bg-light-2;
     cursor: default;
+    z-index: 100;
+}
+
+.particles-js-canvas-el{
+    position: absolute;
+    
 }
 
 .step{
@@ -112,7 +118,7 @@ ul{
     }
     padding: 10px;
     border: 1px solid $secondary;
-    border-radius: 12px;
+    border-radius: 14px;
     width: 50%;
 }
 
@@ -218,6 +224,7 @@ ul{
     @include flex-center();
     position: absolute;
     top: 10px;
+    z-index: 100;
 }
 .img-dark,.img-light{
     border: none;

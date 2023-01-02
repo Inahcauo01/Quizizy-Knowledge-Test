@@ -36,6 +36,11 @@ ul {
   background: #ededed;
   box-shadow: 20px 20px 60px #c9c9c9, -20px -20px 60px #ffffff;
   cursor: default;
+  z-index: 100;
+}
+
+.particles-js-canvas-el {
+  position: absolute;
 }
 
 .step {
@@ -94,7 +99,7 @@ ul {
 #input-username {
   padding: 10px;
   border: 1px solid #90b4ce;
-  border-radius: 12px;
+  border-radius: 14px;
   width: 50%;
 }
 #input-username:focus {
@@ -258,6 +263,7 @@ ul {
   align-items: center;
   position: absolute;
   top: 10px;
+  z-index: 100;
 }
 
 .img-dark, .img-light {
